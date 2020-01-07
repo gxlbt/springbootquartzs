@@ -37,6 +37,31 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <profiles>
+        <!--开发环境development -->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <!--自定义属性名作为变量名 -->
+                <!--配置文件名称application-dev.properties要一致 -->
+                <profiles.active>dev</profiles.active>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <!--测试环境test -->
+        <profile>
+            <id>test</id>
+            <properties>
+                <!--配置文件名称application-test.properties要一致 -->
+                <profiles.active>test</profiles.active>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+    </profiles>
+
 
     <dependencyManagement>
 
